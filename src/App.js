@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ApolloProvider } from 'react-apollo'
 import { Query } from 'react-apollo'
 import client from './client'
-import { ME } from './graphql'
+import { UDON } from './graphql'
 
 class App extends Component {
   render() {
@@ -10,13 +10,13 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div>Hello, GraphQL </div>
         
-        <Query query={ME}>
+        <Query query={UDON}>
           {
             ({ loading, error, data }) => {
               if (loading) return 'Loading...'
               if (error) return `Error! ${error.message}`
 
-              return <div>{data.user.name}</div>
+              return <div>{data.title}</div>
             }
           }
         </Query>
